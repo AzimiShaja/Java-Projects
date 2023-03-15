@@ -1,6 +1,8 @@
 # Top-10-java-Projects
 Here I will be posting my top 10 projects i will make in upcoming future
 # List
+8 - Rock Paper Scissors
+<br>
 9 - Guess the Number
 <br>
 10 - Basic Calculator
