@@ -7,7 +7,7 @@ Here I will be posting my top 10 projects i will make in upcoming future
 <br>
 9 - Guess the Number
 <br>
-10 - Basic Calculator
+10 - Simple Calculator
 
 # Prerequisites
 
