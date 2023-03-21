@@ -1,7 +1,7 @@
 # Fundementals of Java
 Here I will be posting all the Fundementals of java I am supposed to learn .
 # List
-5 - Personel Managements System
+5 - Personnel Managements System
 <br>
 6 - Hotel Reservation System
 <br>
