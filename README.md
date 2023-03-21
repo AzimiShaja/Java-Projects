@@ -1,5 +1,5 @@
-# Top-10-java-Projects
-Here I will be posting my top 10 projects i will make in upcoming future
+# Fundementals of Java
+Here I will be posting all the Fundementals of java I am supposed to learn .
 # List
 6 - Hotel Reservation System
 <br>
