@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Application
+ * University application that manages departments and courses.
  */
 public class University {
     private static Scanner scanner = new Scanner(System.in);
@@ -10,6 +10,11 @@ public class University {
     private static Department department;
     private static Course course;
 
+    /**
+     * The main method of the University application.
+     *
+     * @param args Command-line arguments
+     */
     public static void main(String[] args) {
         System.out.println("\n\tWelcome to the University");
         boolean roll = true;
@@ -28,10 +33,10 @@ public class University {
                     System.out.print("Enter the name of the department -> ");
                     String name = scanner.nextLine();
                     System.out.print("Enter the id of the department -> ");
-                    String dempartmentId = scanner.nextLine();
-                    department = new Department(name, dempartmentId);
+                    String departmentId = scanner.nextLine();
+                    department = new Department(name, departmentId);
                     addDepartment(department);
-                    System.out.println("Department add");
+                    System.out.println("Department added");
                     break;
                 case "2":
                     System.out.println("Enter the name of the department -> ");
@@ -42,15 +47,15 @@ public class University {
                     System.out.print("Enter the name of the department -> ");
                     name = scanner.nextLine();
                     System.out.print("Enter the id of the department -> ");
-                    dempartmentId = scanner.nextLine();
-                    enterDepartment(name, dempartmentId);
+                    departmentId = scanner.nextLine();
+                    enterDepartment(name, departmentId);
                     break;
                 case "4":
                     showAllDepartments();
                     break;
                 case "5":
                     roll = false;
-                    System.out.println("Exitting......");
+                    System.out.println("Exiting......");
                     break;
                 default:
                     break;
@@ -58,13 +63,21 @@ public class University {
         }
     }
 
+    /**
+     * Adds a department to the list of departments.
+     *
+     * @param department The department to be added
+     */
     public static void addDepartment(Department department) {
         departments.add(department);
     }
 
+    /**
+     * Displays all the departments in the university.
+     */
     public static void showAllDepartments() {
         if (departments.isEmpty()) {
-            System.out.println("No departments in university");
+            System.out.println("No departments in the university");
         } else {
             for (Department department : departments) {
                 System.out.println(department);
@@ -72,28 +85,39 @@ public class University {
         }
     }
 
+    /**
+     * Removes a department from the list of departments by name.
+     *
+     * @param name The name of the department to be removed
+     */
     public static void removeDepartment(String name) {
         boolean removed = false;
         if (departments.isEmpty()) {
-            System.out.println("No departments in university to remove");
+            System.out.println("No departments in the university to remove");
         } else {
             for (Department department : departments) {
                 if (department.getName().equals(name)) {
                     departments.remove(department);
                     removed = true;
+                    break;
                 }
             }
             if (removed) {
-                System.out.println("Department Removed");
+                System.out.println("Department removed");
             } else {
-                System.out.println("Department could Not be removed");
-                System.out.println(name + " was not found ");
+                System.out.println("Department could not be removed");
+                System.out.println(name + " was not found");
             }
         }
     }
 
+    /**
+     * Enters a department by name and department ID to manage its courses.
+     *
+     * @param name          The name of the department
+     * @param departmentId  The ID of the department
+     */
     public static void enterDepartment(String name, String departmentId) {
-
         for (int i = 0; i < departments.size(); i++) {
             if (name.equals(departments.get(i).getName())
                     && departmentId.equalsIgnoreCase(departments.get(i).getDepartmentID())) {
@@ -104,7 +128,7 @@ public class University {
                     System.out.println("1 Add Course ");
                     System.out.println("2 Remove Course ");
                     System.out.println("3 List all courses");
-                    System.out.println("4 search for a course");
+                    System.out.println("4 Search for a course");
                     System.out.println("5 Exit");
                     System.out.println();
                     System.out.print("Enter your choice -> ");
@@ -113,28 +137,31 @@ public class University {
                         case "1":
                             System.out.println("Enter the course name: ");
                             String subject = scanner.nextLine();
-                            System.out.println("Enter the course id: ");
+                            System.out.println("Enter the course ID: ");
                             String courseId = scanner.nextLine();
-                            System.out.println("Enter the tutor");
+                            System.out.println("Enter the tutor: ");
                             String tutor = scanner.nextLine();
                             course = new Course(subject, courseId, tutor);
-                            department.addCourse(course);
+                            departments.get(i).addCourse(course);
                             System.out.println("Course added successfully");
                             break;
                         case "2":
-                            department.removeCourse(course);
+                            departments.get(i).removeCourse(course);
                             break;
                         case "3":
-                            department.listAllCourses();
+                            departments.get(i).listAllCourses();
                             break;
                         case "4":
-                            System.out.println("Enter the course name ");
+                            System.out.println("Enter the course name: ");
                             String courseName = scanner.nextLine();
-                            department.searchCourse(courseName);
+                            departments.get(i).searchCourse(courseName);
                             break;
                         case "5":
+                            roll = false;
+                            System.out.println("Exiting department.......");
+                            break;
                         default:
-                            System.out.println("Wrong input!, Pleease try again");
+                            System.out.println("Wrong input! Please try again");
                             break;
                     }
                 }
